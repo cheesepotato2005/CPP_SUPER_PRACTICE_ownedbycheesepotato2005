@@ -1,6 +1,6 @@
 #include<iostream>
 #include<iomanip>
-//Ep1.引用
+//Chapter1.引用
 
 //第一题
 void swap(int& a,int& b) {
@@ -19,7 +19,7 @@ void swap(int& a,int& b) {
   ——————————————————————————————————————————————————————————
 */
 
-//Ep2.函数重载
+//Chapter2.函数重载
 int factorial(int a) {
 	if (a == 0)return 1;// 注意0!=1
 	for (int i = a - 1; i > 0; i--) {
@@ -32,7 +32,7 @@ int factorial(int a, int b) {
 }
 
 
-//Ep3.类·属性和行为
+//Chapter3.类·属性和行为
 class Matrix {
 public:
 	double** G;
