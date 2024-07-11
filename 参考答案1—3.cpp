@@ -96,7 +96,7 @@ public:
 			}
 		}
 		return *this;
-	}//这是对赋值符号进行重载。请注意运算符重载的算法，这是一个重点内容。
+	}//这是对赋值符号进行重载。请注意运算符重载的方法，这是一个重点内容。
 };
 //【附加题】
 class Equation {
@@ -104,7 +104,7 @@ class Equation {
 	double b[3];
 public:
 	Equation(Matrix A,double b1,double b2,double b3) {
-		this->A = A;
+		this->A = A;//此处的赋值符号已经进行了重载，如果还不会重载运算符，也可以用其他方式（例如遍历一对一赋值）解决！
 		b[0] = b1; b[1] = b2; b[2] = b3;
 	}
 	void PrintA_b() {
