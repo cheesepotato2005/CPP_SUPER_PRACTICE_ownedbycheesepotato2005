@@ -2,6 +2,7 @@
 #include <chrono>
 #include <thread>
 #include<Windows.h>
+#include<cmath>
                                                  /*
         -----Chapter6.运算符重载part2-----
 _________________________________________________
@@ -124,7 +125,7 @@ public:
             }
             p_sum += p[i];
         }
-        if (p_sum - 1.0 > 1e-6) {//【思考】这里的p_sum-1.0>1e-6是什么意思？
+        if (fabs(p_sum - 1.0) > 1e-6) {//【思考】这里的p_sum-1.0>1e-6是什么意思？
             std::cerr << "概率输入有误：概率总和应该为1" << std::endl;
             delete[] p;
             delete[] w;
