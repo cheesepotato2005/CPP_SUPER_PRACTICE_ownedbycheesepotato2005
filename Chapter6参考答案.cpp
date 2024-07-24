@@ -15,19 +15,19 @@ class Bomb {
     }
     void motivateBomb() {
         while (m_count != 0) {
-            std::cout << "Ê£ÓàÊ±¼ä: " << m_count << " Ãë\n";
-            std::cout << "°²È«ÌÓÀëÊ±¼ä£º" << m_escape << " Ãë\n";
+            std::cout << "å‰©ä½™æ—¶é—´: " << m_count << " ç§’\n";
+            std::cout << "å®‰å…¨é€ƒç¦»æ—¶é—´ï¼š" << m_escape << " ç§’\n";
             std::this_thread::sleep_for(std::chrono::seconds(1));
-            //Õâ¸öÓï¾äµÄ¹¦ÄÜÊÇÈÃÏß³ÌÐÝÃßÒ»Ãë,ÊµÏÖ¼ÆÊ±¹¦ÄÜ
-            --*this;//×¢ÒâÕâÀïÊÇÇ°ÖÃµÝ¼õ
-            system("cls");//¿ØÖÆÌ¨ÇåÆÁ
+            //è¿™ä¸ªè¯­å¥çš„åŠŸèƒ½æ˜¯è®©çº¿ç¨‹ä¼‘çœ ä¸€ç§’,å®žçŽ°è®¡æ—¶åŠŸèƒ½
+            --*this;//æ³¨æ„è¿™é‡Œæ˜¯å‰ç½®é€’å‡
+            system("cls");//æŽ§åˆ¶å°æ¸…å±
         }
-        std::cout << "Õ¨µ¯±¬Õ¨£¡" << std::endl;
-    }//Õ¨µ¯Æô¶¯º¯Êý
+        std::cout << "ç‚¸å¼¹çˆ†ç‚¸ï¼" << std::endl;
+    }//ç‚¸å¼¹å¯åŠ¨å‡½æ•°
     Bomb& operator--();
 };
 
-//ÖØÔØÇ°ÖÃµÝ¼õ
+//é‡è½½å‰ç½®é€’å‡
 Bomb& Bomb::operator--() {
     m_count--;
     m_escape -= m_yield;
@@ -40,15 +40,15 @@ Bomb& Bomb::operator--() {
 //2
 class player {
 public:
-    std::string name;//½ÇÉ«Ãû
-    double max_Hp;//×î´óÉúÃüÖµ
-    double attack;//¹¥»÷Á¦
-    double defense;//·ÀÓùÁ¦
+    std::string name;//è§’è‰²å
+    double max_Hp;//æœ€å¤§ç”Ÿå‘½å€¼
+    double attack;//æ”»å‡»åŠ›
+    double defense;//é˜²å¾¡åŠ›
 
     bool operator==(player B);
     bool operator>(player B);
     bool operator<(player B);
-    //ÕâÊÇÐèÒªÄãÖØÔØµÄÈý¸öº¯Êý
+    //è¿™æ˜¯éœ€è¦ä½ é‡è½½çš„ä¸‰ä¸ªå‡½æ•°
 };
 bool player::operator==(player B) {
     double A_power = pow((0.6 * max_Hp + 2.1 * defense) * 2.72, attack);
@@ -61,7 +61,7 @@ bool player::operator==(player B) {
 bool player::operator>(player B) {
     double A_power = pow((0.6 * max_Hp + 2.1 * defense) * 2.72, attack);
     double B_power = pow((0.6 * B.max_Hp + 2.1 * B.defense) * 2.72, B.attack);
-    if (fabs(A_power - B_power) > 1e-6)
+    if (A_power - B_power > 1e-6)
         return 1;
     else
         return 0;
@@ -69,7 +69,7 @@ bool player::operator>(player B) {
 bool player::operator<(player B) {
     double A_power = pow((0.6 * max_Hp + 2.1 * defense) * 2.72, attack);
     double B_power = pow((0.6 * B.max_Hp + 2.1 * B.defense) * 2.72, B.attack);
-    if (fabs(B_power - A_power) > 1e-6)
+    if (B_power - A_power > 1e-6)
         return 1;
     else
         return 0;
