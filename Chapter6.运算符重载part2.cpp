@@ -125,7 +125,7 @@ public:
             }
             p_sum += p[i];
         }
-        if (fabs(p_sum - 1.0) > 1e-6) {//【思考】这里的p_sum-1.0>1e-6是什么意思？
+        if (fabs(p_sum - 1.0) > 1e-6) {//【思考】这里的fabs(p_sum-1.0)>1e-6是什么意思？
             std::cerr << "概率输入有误：概率总和应该为1" << std::endl;
             delete[] p;
             delete[] w;
